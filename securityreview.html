@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Information — 3 July 2026</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --accent-us: #1a56db;
+    --accent-ch: #dc2626;
+    --pos: #16a34a;
+    --neg: #dc2626;
+    --neu: #6b7280;
+    --border: #e5e7eb;
+    --text: #111827;
+    --sub: #6b7280;
+    --tag-bg: #eff6ff;
+    --tag-us: #1a56db;
+    --tag-ch-bg: #fef2f2;
+    --tag-ch: #dc2626;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 24px;
+  }
+  header {
+    max-width: 1100px;
+    margin: 0 auto 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  header h1 { font-size: 22px; font-weight: 700; color: var(--text); }
+  header .meta { font-size: 12px; color: var(--sub); }
+  .group-header {
+    max-width: 1100px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .group-header h2 { font-size: 16px; font-weight: 700; letter-spacing: .3px; }
+  .flag { font-size: 22px; }
+  .cards {
+    max-width: 1100px;
+    margin: 0 auto 36px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .card-head .name { font-weight: 700; font-size: 15px; }
+  .card-head .ticker {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .us .ticker { background: var(--tag-bg); color: var(--tag-us); }
+  .ch .ticker { background: var(--tag-ch-bg); color: var(--tag-ch); }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .price { font-size: 22px; font-weight: 700; }
+  .change {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .pos { background: #dcfce7; color: var(--pos); }
+  .neg { background: #fee2e2; color: var(--neg); }
+  .neu-tag { background: #f3f4f6; color: var(--neu); }
+  .metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+    padding: 10px;
+    background: #f9fafb;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+  .metric-item { display: flex; flex-direction: column; }
+  .metric-label { color: var(--sub); font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }
+  .metric-value { font-weight: 600; color: var(--text); margin-top: 1px; }
+  .news {
+    font-size: 12.5px;
+    color: #374151;
+    padding: 8px 10px;
+    background: #f0f9ff;
+    border-left: 3px solid #38bdf8;
+    border-radius: 0 5px 5px 0;
+    line-height: 1.55;
+  }
+  .news.neutral { background: #f9fafb; border-left-color: #d1d5db; }
+  .news.alert { background: #fff7ed; border-left-color: #f97316; }
+  .news strong { display: block; margin-bottom: 2px; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: var(--sub); }
+  footer {
+    max-width: 1100px;
+    margin: 8px auto 0;
+    font-size: 11px;
+    color: var(--sub);
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Share Information</h1>
+    <div class="meta">As of: Friday, 3 July 2026 · US markets closed today for the observed Independence Day holiday (Jul 4 falls on a Saturday) — US prices reflect the Thursday, 2 July close. SIX prices reflect intraday/end-of-day data Jul 2–3.</div>
+  </div>
+  <div class="meta">Generated automatically · ph.gnaedinger@gmail.com</div>
+</header>
+
+<!-- ══════════════════════ GROUP USA ══════════════════════ -->
+<div class="group-header">
+  <span class="flag">🇺🇸</span>
+  <h2>Group USA</h2>
+</div>
+
+<div class="cards">
+
+  <!-- 1. Apple -->
+  <div class="card us">
+    <div class="card-head">
+      <span class="name">Apple Inc.</span>
+      <span class="ticker">AAPL · NASDAQ</span>
+    </div>
+    <div class="price-row">
+      <span class="price">$308.63</span>
+      <span class="change pos">+4.84% (1d)</span>
+      <span class="change pos">~+7.3% (YTD, est.)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~$4.45 T</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">$201.50 – $317.40</span></div>
+      <div class="metric-item"><span class="metric-label">Next Earnings</span><span class="metric-value">Jul 30, 2026</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Price as of Jul 2 close</span></div>
+    </div>
+    <div class="news alert">
+      <strong>Breaking — Jul 2, 2026</strong>
+      Shares surged +4.84% — Apple's strongest session of the year — after a Nikkei Asia report that Apple plans at least 5 new iPhone models through H2 2027, including a premium foldable "iPhone Ultra." The rally comes ahead of Tim Cook's planned move to Executive Chairman on Sep 1, 2026, with John Ternus set to become CEO.
+    </div>
+  </div>
+
+  <!-- 2. NVIDIA -->
+  <div class="card us">
+    <div class="card-head">
+      <span class="name">NVIDIA Corp.</span>
+      <span class="ticker">NVDA · NASDAQ</span>
+    </div>
+    <div class="price-row">
+      <span class="price">$194.83</span>
+      <span class="change neg">~-1.5% (1d, est.)</span>
+      <span class="change pos">~+5.3% (YTD, est.)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~$4.72 T</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">$157.34 – $236.54</span></div>
+      <div class="metric-item"><span class="metric-label">vs. ATH (May 14)</span><span class="metric-value">~-17%</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Price as of Jul 2 close</span></div>
+    </div>
+    <div class="news">
+      <strong>Recent Activity</strong>
+      NVIDIA launched its BioNeMo Agent Toolkit for AI-driven life-sciences research on Jul 1–2, with early adopters including Eli Lilly, Databricks and Schrödinger. Shares pulled back modestly amid a growing competitive narrative around Amazon's in-house Trainium chips and falling GPU rental rates.
+    </div>
+  </div>
+
+  <!-- 3. Alphabet -->
+  <div class="card us">
+    <div class="card-head">
+      <span class="name">Alphabet Inc.</span>
+      <span class="ticker">GOOGL · NASDAQ</span>
+    </div>
+    <div class="price-row">
+      <span class="price">$359.50</span>
+      <span class="change pos">~+1.0% (1d, est.)</span>
+      <span class="change pos">~+14.7% (YTD, est.)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~$4.37 T</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">$172.77 – $408.61</span></div>
+      <div class="metric-item"><span class="metric-label">P/E Ratio</span><span class="metric-value">~27.6×</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Price as of Jul 2 close</span></div>
+    </div>
+    <div class="news alert">
+      <strong>Breaking — Jul 1–2, 2026</strong>
+      Alphabet officially joined the Dow Jones Industrial Average this week, replacing Verizon — shares jumped as much as 4% on the news. Separately, the EU's top court upheld Google's €4.1B Android antitrust fine on Jul 2, closing an 8-year legal battle, with only a modest (~1%) market reaction.
+    </div>
+  </div>
+
+  <!-- 4. Amazon -->
+  <div class="card us">
+    <div class="card-head">
+      <span class="name">Amazon.com Inc.</span>
+      <span class="ticker">AMZN · NASDAQ</span>
+    </div>
+    <div class="price-row">
+      <span class="price">$243.00</span>
+      <span class="change pos">~+0.9% (1d, est.)</span>
+      <span class="change pos">~+5.3% (YTD, est.)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~$2.61 T</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">$196.00 – $278.56</span></div>
+      <div class="metric-item"><span class="metric-label">Analyst View</span><span class="metric-value">Buy (BofA reiterated)</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Price as of Jul 2 close</span></div>
+    </div>
+    <div class="news">
+      <strong>Recent Activity</strong>
+      AWS raised GPU/ML capacity-block pricing by roughly 20%, effective Jul 1, and unveiled a new $1B "Forward Deployed Engineering" unit to embed AI engineers with enterprise clients. AWS also announced a dedicated "Secret Cloud for Industry" offering for defense contractors.
+    </div>
+  </div>
+
+  <!-- 5. Microsoft -->
+  <div class="card us">
+    <div class="card-head">
+      <span class="name">Microsoft Corp.</span>
+      <span class="ticker">MSFT · NASDAQ</span>
+    </div>
+    <div class="price-row">
+      <span class="price">$390.80</span>
+      <span class="change pos">+1.67% (1d)</span>
+      <span class="change neg">~-23.4% (YTD, est.)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~$2.90 T</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">$349.20 – $555.45</span></div>
+      <div class="metric-item"><span class="metric-label">Analyst Target (avg)</span><span class="metric-value">~$560 – $577</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Trading near 52-wk low</span></div>
+    </div>
+    <div class="news alert">
+      <strong>Recent Activity</strong>
+      Shares remain pinned near their 52-week low as investors digest Microsoft's ~$190B AI capex plan and reports of an annual July restructuring affecting Xbox, sales and consulting roles (~2.5% of staff). Analyst views are split — Stifel cut its target to $392 while Bernstein and Morgan Stanley raised theirs — with consensus still Buy.
+    </div>
+  </div>
+
+  <!-- 6. SpaceX -->
+  <div class="card us">
+    <div class="card-head">
+      <span class="name">Space Exploration Technologies (SpaceX)</span>
+      <span class="ticker">SPCX · NASDAQ</span>
+    </div>
+    <div class="price-row">
+      <span class="price">$157.69</span>
+      <span class="change pos">~+0.1% (1d)</span>
+      <span class="change pos">~+16.8% (since IPO, Jun 12)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~$2.08 T</span></div>
+      <div class="metric-item"><span class="metric-label">IPO Price (Jun 12)</span><span class="metric-value">$135.00</span></div>
+      <div class="metric-item"><span class="metric-label">Post-IPO Range</span><span class="metric-value">$135.00 – $225.64</span></div>
+      <div class="metric-item"><span class="metric-label">Analyst Consensus</span><span class="metric-value">Moderate Buy (avg. PT ~$222)</span></div>
+    </div>
+    <div class="news alert">
+      <strong>Upcoming Catalyst</strong>
+      SPCX is set to join the Nasdaq-100 index on Jul 7, 2026 — a move analysts estimate could trigger ~$4.3B in passive index-fund inflows. The stock remains volatile just three weeks post-IPO, with sell-side coverage still forming (Wedbush Outperform, $190 PT, vs. CFRA Sell).
+    </div>
+  </div>
+
+</div><!-- /cards USA -->
+
+
+<!-- ══════════════════════ GROUP SWITZERLAND ══════════════════════ -->
+<div class="group-header">
+  <span class="flag">🇨🇭</span>
+  <h2>Group Switzerland (SIX Swiss Exchange)</h2>
+</div>
+
+<div class="cards">
+
+  <!-- 1. Nestlé -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">Nestlé S.A.</span>
+      <span class="ticker">NESN · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">CHF 84.27</span>
+      <span class="change pos">+1.68% (1d)</span>
+      <span class="change pos">+8.61% (YTD)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">CHF 216.5 B</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">CHF 69.90 – 85.06</span></div>
+      <div class="metric-item"><span class="metric-label">Next Earnings</span><span class="metric-value">H1 2026, Jul 23</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Trading near 52-wk high</span></div>
+    </div>
+    <div class="news">
+      <strong>Breaking — Jul 3, 2026</strong>
+      Nestlé completed its full buyout of yfood Labs GmbH, converting its existing 49% stake (held since 2023) into full ownership of the protein-drink brand. Half-year 2026 results are due Jul 23; shares are up +8.6% YTD and trading in the upper half of their 52-week range.
+    </div>
+  </div>
+
+  <!-- 2. Lonza -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">Lonza Group AG</span>
+      <span class="ticker">LONN · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">CHF 545.80</span>
+      <span class="change pos">+0.89% (1d)</span>
+      <span class="change pos">~+0.9% (YTD)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~CHF 38.7 B</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">CHF 454.60 – 594.80</span></div>
+      <div class="metric-item"><span class="metric-label">Analyst Target (avg)</span><span class="metric-value">CHF 665</span></div>
+      <div class="metric-item"><span class="metric-label">Rating</span><span class="metric-value">Strong Buy (22/23)</span></div>
+    </div>
+    <div class="news">
+      <strong>Recent Activity</strong>
+      Lonza expanded its manufacturing partnership with a major (unnamed) US biopharma client around Jul 1, adding antibody-drug-conjugate and HPAPI capacity at its Visp site in a deal described as having "multi-billion" potential value. H1 2026 results are due Jul 22.
+    </div>
+  </div>
+
+  <!-- 3. Richemont -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">Compagnie Financière Richemont SA</span>
+      <span class="ticker">CFR · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">CHF 186.80</span>
+      <span class="change pos">~+0.24% (1d, est.)</span>
+      <span class="change neu-tag">YTD: data gap</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~CHF 109.8 B</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week High</span><span class="metric-value">CHF 189.55 (Jun 26, ATH)</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Low</span><span class="metric-value">CHF 127.20</span></div>
+      <div class="metric-item"><span class="metric-label">Rating</span><span class="metric-value">Buy (17/9 hold)</span></div>
+    </div>
+    <div class="news">
+      <strong>Recent Activity</strong>
+      Richemont and the Damiani Group completed the sale of watchmaker Baume &amp; Mercier on Jul 1, formalizing a divestment agreed in January. Shares hit a fresh all-time high of CHF 189.55 on Jun 26 and remain well-supported by continued luxury demand in Asia.
+    </div>
+  </div>
+
+  <!-- 4. Sunrise -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">Sunrise Communications AG</span>
+      <span class="ticker">SUNN · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">~CHF 46.60</span>
+      <span class="change neu-tag">low-confidence snapshot</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">CHF 3.39 B</span></div>
+      <div class="metric-item"><span class="metric-label">Div. Yield</span><span class="metric-value">~7.3%</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">CHF ~38.70 – 51.30</span></div>
+      <div class="metric-item"><span class="metric-label">Last Dividend</span><span class="metric-value">CHF 3.42/share (May)</span></div>
+    </div>
+    <div class="news neutral">
+      <strong>Recent Activity</strong>
+      No significant company-specific news in the last 24–48 hours. Sunrise continues to offer one of the highest dividend yields in the Swiss telecom sector (~7.3%), with a customer price increase scheduled to take effect Aug 1.
+    </div>
+  </div>
+
+  <!-- 5. Sika -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">Sika AG</span>
+      <span class="ticker">SIKA · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">~CHF 165.00</span>
+      <span class="change neu-tag">wide source spread</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~CHF 26.7 B</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">CHF ~120 – 224</span></div>
+      <div class="metric-item"><span class="metric-label">Analyst Target (avg)</span><span class="metric-value">CHF 180 – 195</span></div>
+      <div class="metric-item"><span class="metric-label">Rating</span><span class="metric-value">Buy</span></div>
+    </div>
+    <div class="news">
+      <strong>Recent Activity</strong>
+      Deutsche Bank raised its price target on Sika to CHF 163 (from CHF 154) on Jul 2 while maintaining a Hold rating. The stock remains well off its 52-week high amid a soft construction-sector backdrop; H1 2026 results are due Jul 29.
+    </div>
+  </div>
+
+  <!-- 6. UBS -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">UBS Group AG</span>
+      <span class="ticker">UBSG · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">~CHF 41.05</span>
+      <span class="change pos">+1.89% (1d)</span>
+      <span class="change pos">~+45% (YTD, est.)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~CHF 127 B</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">CHF 26.41 – 41.49</span></div>
+      <div class="metric-item"><span class="metric-label">Buyback</span><span class="metric-value">New USD 2B program (Jul 1)</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Trading near 52-wk high</span></div>
+    </div>
+    <div class="news alert">
+      <strong>Breaking — Jul 1–2, 2026</strong>
+      UBS publicly pushed back on the Swiss National Bank's financial-stability report on Jul 2, disputing its characterization of UBS's readiness for Switzerland's proposed "too-big-to-fail" capital reforms. Separately, UBS launched a new two-year, up-to-USD-2B share buyback program on Jul 1, succeeding its completed prior program.
+    </div>
+  </div>
+
+  <!-- 7. Alcon -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">Alcon AG</span>
+      <span class="ticker">ALC · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">~CHF 52.70</span>
+      <span class="change neu-tag">low-confidence snapshot</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~CHF 25.6 B</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">CHF 47.80 – 74.34</span></div>
+      <div class="metric-item"><span class="metric-label">Next Earnings</span><span class="metric-value">Aug 10, 2026</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Near lower end of range</span></div>
+    </div>
+    <div class="news neutral">
+      <strong>Recent Activity</strong>
+      No significant company-specific news in the last 24–48 hours. Alcon reaffirmed FY2026 guidance (5–7% sales growth, 10–13% core EPS growth) at its Q1 print; next earnings are due Aug 10.
+    </div>
+  </div>
+
+  <!-- 8. Helvetia Baloise -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">Helvetia Baloise Holding AG</span>
+      <span class="ticker">HBAN · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">~CHF 205</span>
+      <span class="change neu-tag">low-confidence snapshot</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~CHF 20.7 B</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">CHF 183.40 – 225.00</span></div>
+      <div class="metric-item"><span class="metric-label">Div. Yield</span><span class="metric-value">~3.7% (fwd.)</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Formed Dec 2025 merger</span></div>
+    </div>
+    <div class="news alert">
+      <strong>Breaking — Jul 1, 2026</strong>
+      The legal merger of Helvetia's and Baloise's underlying Swiss insurance and asset-management entities became effective Jul 1, consolidating over CHF 100B in AuM and 450+ employees under a single, unified brand — a major integration milestone following the Dec 2025 merger of equals.
+    </div>
+  </div>
+
+  <!-- 9. Partners Group -->
+  <div class="card ch">
+    <div class="card-head">
+      <span class="name">Partners Group Holding AG</span>
+      <span class="ticker">PGHN · SIX</span>
+    </div>
+    <div class="price-row">
+      <span class="price">CHF 681.60</span>
+      <span class="change pos">+0.62% (1d)</span>
+      <span class="change neg">~-32% (YTD, est.)</span>
+    </div>
+    <div class="metrics">
+      <div class="metric-item"><span class="metric-label">Market Cap</span><span class="metric-value">~CHF 18.4 B</span></div>
+      <div class="metric-item"><span class="metric-label">52-Week Range</span><span class="metric-value">CHF 632.40 – 1,158.00</span></div>
+      <div class="metric-item"><span class="metric-label">vs. 52-wk High</span><span class="metric-value">~-38%</span></div>
+      <div class="metric-item"><span class="metric-label">Note</span><span class="metric-value">Price as of Jul 2 close</span></div>
+    </div>
+    <div class="news alert">
+      <strong>Ongoing — since Jun 3, 2026</strong>
+      Shares remain roughly a third below their 52-week high following the Jun 3 gating of the USD 8.6B Global Value evergreen fund after redemption requests neared 10% of NAV. Founders/execs have bought back ~CHF 60M of stock since February (incl. ~CHF 31M in June) as a confidence signal, and the company has separately proposed a dual-share-class restructuring for its London-listed PGPE investment trust to address a persistent NAV discount.
+    </div>
+  </div>
+
+</div><!-- /cards CH -->
+
+<footer>
+  Data sourced from public market data aggregated via web search (Yahoo Finance, Google Finance, Bloomberg, TradingView, Investing.com, StockAnalysis, company press releases and ad-hoc disclosures) as of 2–3 July 2026. Direct live-quote fetches were blocked by several source sites; several figures are triangulated across conflicting snapshots and flagged as estimates ("est.") or low-confidence where source agreement was poor — treat exact intraday prices and 1-day/YTD percentages as approximate pending confirmation against a live market-data terminal. US markets were closed 3 July 2026 for the observed Independence Day holiday; US figures reflect the 2 July close. Prices are in USD for US equities and CHF for Swiss equities unless otherwise noted. This document is for information purposes only and does not constitute investment advice.
+</footer>
+
+</body>
+</html>
